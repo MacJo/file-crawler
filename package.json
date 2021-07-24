@@ -1,0 +1,22 @@
+{
+  "devDependencies": {
+    "@types/chai": "^4.2.21",
+    "@types/mocha": "^8.2.3",
+    "chai": "^4.3.4",
+    "mocha": "^9.0.2",
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5"
+  },
+  "name": "file-crawler-ts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "node-dir": "^0.1.17"
+  },
+  "scripts": {
+    "test": "mocha -r ts-node/register src/**/*.spec.ts"
+  },
+  "author": "MacJo",
+  "license": "MIT",
+  "description": ""
+}
