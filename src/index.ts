@@ -13,7 +13,7 @@ export class Crawler {
             const path = options.savePath ? options.savePath : __dirname + '../export/fs/';
             const wID = options.id ? options.filenameAppender + options.id : 'mp'+ Date.now();
             
-            if(!existsSync(folder_path)) throw(new Error('Folder does not exist ' + folder_path));
+            if(!existsSync(folder_path)) resolve(result);
             
             const worker = new Worker(__dirname + '/workers/mapping-worker.js', {
                 workerData: {
