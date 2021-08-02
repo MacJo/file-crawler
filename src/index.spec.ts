@@ -5,7 +5,7 @@ import { MapOptions, MapResults } from './types/map';
 
 describe('Map Folders function', () => {
 
-    it('Should map folder correctly', async () => {
+    it('Should map folder', async () => {
         const val = new Crawler();
         
         const options : MapOptions = {
@@ -32,7 +32,7 @@ describe('Map Folders function', () => {
         expect(result.error).to.be.true;
     });
 
-    it('Should ', async () => {
+    it('Should map multiple folders', async () => {
         const paths = ['/test-folder/folder1/','/test-folder/folder2/','/test-folder/folder3/'];
         
         const val = new Crawler();
@@ -50,4 +50,26 @@ describe('Map Folders function', () => {
             });
         } 
     });
+
+    it('Should fail 1st folder success 2 folders', async () => {
+        const paths = ['/test-folder/folder1/*','/test-folder/folder2/','/test-folder/folder3/'];
+        
+        const val = new Crawler();
+        for(let i = 0; i < 3; i++){
+            
+            const options : MapOptions = {
+                id: i.toString(),
+                filenameAppender: i +'-id',
+                savePath: __dirname + '/export/fs/'
+            }
+    
+            await val.mapFolders(__dirname+paths[i], options)
+            .then((result)=>{
+                if(result.id == '0')expect(result.error).to.be.true;
+                else expect(result.error).to.be.false;
+            });
+        } 
+    });
+
+
 });
