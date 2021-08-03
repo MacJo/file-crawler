@@ -4,7 +4,8 @@
   "main": "./src/index.ts",
   "scripts": {
     "test": "mocha -r ts-node/register src/**/*.spec.ts && rm ./src/export/fs/*.json",
-    "test:dev": "mocha -r ts-node/register src/**/*.spec.ts"
+    "test:dev": "mocha -r ts-node/register src/**/*.spec.ts",
+    "build":"npx tsc && npm run test"
   },
   "author": "MacJo",
   "license": "MIT",
