@@ -8,7 +8,12 @@
     "build":"npx tsc && npm run test"
   },
   "author": "MacJo",
+  "website":"https://github.com/MacJo",
   "license": "MIT",
+  "repository": {
+    "url": "https://github.com/MacJo/file-crawler",
+    "type": "git"
+  },
   "description": "",
   "dependencies": {
     "node-dir": "^0.1.17"

@@ -3,6 +3,8 @@ const fs = require('fs');
 const path = require('path');
 const dir = require('node-dir');
 
+let skip_extensions = [];
+
 try {
     dir.paths(workerData.srcPath, function (err, paths) {
         if (err) return err;
@@ -35,8 +37,10 @@ try {
             const file_dev = stats.dev;
             const file_rdev = stats.rdev;
 
-            filesFinal.push({ file_label, file_path, file_extension, file_size, file_birth, file_mod, file_uid, file_gid, file_nlink, file_dev, file_rdev });
-
+            
+            if (skip_extensions.findIndex((element) => element === content.file_extension === 0)){
+                filesFinal.push({ file_label, file_path, file_extension, file_size, file_birth, file_mod, file_uid, file_gid, file_nlink, file_dev, file_rdev });
+            }
         });
 
         fs.writeFileSync(workerData.exportPath + workerData.id + '.json', JSON.stringify(filesFinal), (err) => {throw(new Error(err))});

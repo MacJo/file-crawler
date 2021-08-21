@@ -1,0 +1,1 @@
+DS_Store,1password, gitignore, git, nmssh,icon,pub,ppk,src,a,h,m,cpp,c,cs,py,ini,init,secret,settings,dropbox,download,aaa,DONNEES,SYSTEM,bin,Thumbs,dll
