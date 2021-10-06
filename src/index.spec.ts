@@ -1,33 +1,29 @@
 import 'mocha';
 import { assert, expect } from 'chai'
-import { Crawler } from './index'
+import { mapFolders } from './index'
 import { MapOptions, MapResults } from './types/map';
 
 describe('Map Folders function', () => {
 
     it('Should map folder', async () => {
-        const val = new Crawler();
-        
         const options : MapOptions = {
             id: 'id0123',
             filenameAppender: 'mp',
             savePath: __dirname + '/export/fs/'
         }
 
-        const result: MapResults = await val.mapFolders(__dirname + '/test-folder/', options);
+        const result: MapResults = await mapFolders(__dirname + '/test-folder/', options);
 
         expect(result.error).to.be.false;
     });
 
     it('Should return error - folder does not exist', async () => {
-        const val = new Crawler();
-
         const options : MapOptions = {
             id: 'falseid',
             filenameAppender: 'upsi'
         }
 
-        const result: MapResults = await val.mapFolders(__dirname +'/test-folde/', options);
+        const result: MapResults = await mapFolders(__dirname +'/test-folde/', options);
 
         expect(result.error).to.be.true;
     });
@@ -35,7 +31,6 @@ describe('Map Folders function', () => {
     it('Should map multiple folders', async () => {
         const paths = ['/test-folder/folder1/','/test-folder/folder2/','/test-folder/folder3/'];
         
-        const val = new Crawler();
         for(let i = 0; i < 3; i++){
             
             const options : MapOptions = {
@@ -44,7 +39,7 @@ describe('Map Folders function', () => {
                 savePath: __dirname + '/export/fs/'
             }
     
-            await val.mapFolders(__dirname+paths[i], options)
+            await mapFolders(__dirname+paths[i], options)
             .then((result)=>{
                 expect(result.error).to.be.false;
             });
@@ -54,7 +49,6 @@ describe('Map Folders function', () => {
     it('Should fail 1st folder success 2 folders', async () => {
         const paths = ['/test-folder/folder1/*','/test-folder/folder2/','/test-folder/folder3/'];
         
-        const val = new Crawler();
         for(let i = 0; i < 3; i++){
             
             const options : MapOptions = {
@@ -63,7 +57,7 @@ describe('Map Folders function', () => {
                 savePath: __dirname + '/export/fs/'
             }
     
-            await val.mapFolders(__dirname+paths[i], options)
+            await mapFolders(__dirname+paths[i], options)
             .then((result)=>{
                 if(result.id == '0')expect(result.error).to.be.true;
                 else expect(result.error).to.be.false;
