@@ -5,10 +5,10 @@
   "scripts": {
     "test": "mocha -r ts-node/register src/**/*.spec.ts && rm ./src/export/fs/*.json",
     "test:dev": "mocha -r ts-node/register src/**/*.spec.ts",
-    "build":"npx tsc && npm run test"
+    "build": "npx tsc && npm run test"
   },
   "author": "MacJo",
-  "website":"https://github.com/MacJo",
+  "website": "https://github.com/MacJo",
   "license": "MIT",
   "repository": {
     "url": "https://github.com/MacJo/file-crawler",
@@ -22,7 +22,10 @@
     "@types/chai": "^4.2.21",
     "@types/mocha": "^8.2.3",
     "@types/node": "^16.4.2",
+    "@typescript-eslint/eslint-plugin": "^5.2.0",
+    "@typescript-eslint/parser": "^5.2.0",
     "chai": "^4.3.4",
+    "eslint": "^8.1.0",
     "mocha": "^9.0.2",
     "ts-node": "^10.1.0",
     "typescript": "^4.3.5"

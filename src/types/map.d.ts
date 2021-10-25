@@ -8,6 +8,6 @@ export interface MapResults {
     error?: boolean,
     message?:string,
     id: string,
-    nresults?: Number,
-    time?: Number
+    nresults?: number,
+    time?: number
 }
