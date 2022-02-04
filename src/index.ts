@@ -22,7 +22,7 @@ export class Crawler {
                     srcPath: folder_path,
                     options: {}
                   }
-            });
+            })
     
             worker.on('message', (message) => {
                 result.nresults = message.linesimported;
@@ -34,7 +34,7 @@ export class Crawler {
             worker.on('exit', (code) => {
                 if (code !== 0) {
                     result.error = false;
-                    reject('Error code '+ code);
+                    reject(result);
                 }
                 result.error = false;
                 resolve(result);
